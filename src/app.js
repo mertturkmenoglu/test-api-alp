@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.get('/', (req, res) => {
 	console.log("Request to root");
 	res.send({
@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/product', (req, res) => {
+	console.log("POST /product");
 	console.log(req.body);
 	res.send(req.body);
 });
